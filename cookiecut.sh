@@ -1,1 +1,1 @@
-./cookiecutter gh:ionelmc/cookiecutter-pylibrary
+cookiecutter gh:ionelmc/cookiecutter-pylibrary
