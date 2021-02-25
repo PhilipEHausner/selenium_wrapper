@@ -17,7 +17,6 @@ def get_firefox_driver(headless: bool = False) -> WebDriverWrapper:
     if sys.platform == "win32":
         path = os.path.join(file_path, "..", "driver", "windows", "geckodriver.exe")
     else:  # Linux
-        print(os.path.join(file_path, "..", "driver", "linux", "geckodriver"))
         path = os.path.join(file_path, "..", "driver", "linux", "geckodriver")
     driver = webdriver.Firefox(executable_path=path, options=options)
     driver.set_script_timeout(5)
