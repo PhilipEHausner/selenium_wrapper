@@ -169,6 +169,14 @@ class WebDriverWrapper:
     def get_screenshot_as_file(self, filename: str) -> None:
         self._driver.get_screenshot_as_file(filename)
 
+    def get_screenshot_whole_page(self, filename: str) -> None:
+        current = self.get_window_size()
+        width = self.execute_script("return document.body.parentNode.scrollWidth")
+        height = self.execute_script("return document.body.parentNode.scrollHeight")
+        self.set_window_size(width, height)
+        self.find_element_by_tag_name("body").get_screenshot_as_file(filename)
+        self.set_window_size(current["width"], current["height"])
+
     def element_size_is_larger_than_fraction_of_window_size(self, element: WebElementWrapper, ratio: float) -> bool:
         window_size = self.get_window_size()
         if element.size >= ratio * window_size["height"] * window_size["width"]:
