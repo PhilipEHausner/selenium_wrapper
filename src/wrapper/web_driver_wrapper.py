@@ -5,7 +5,7 @@ from typing import Dict, List, Optional, Tuple, Union
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.ui import WebDriverWait
 
-from wrapper.web_element_wrapper import WebElementWrapper
+from .web_element_wrapper import WebElementWrapper
 
 
 class WebDriverWrapper:

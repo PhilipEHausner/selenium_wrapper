@@ -3,7 +3,7 @@ import sys
 
 from selenium import webdriver
 
-from wrapper.web_driver_wrapper import WebDriverWrapper
+from ..wrapper.web_driver_wrapper import WebDriverWrapper
 
 
 def get_firefox_driver(headless: bool = False) -> WebDriverWrapper:
