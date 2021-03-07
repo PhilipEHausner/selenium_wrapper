@@ -147,6 +147,9 @@ class WebDriverWrapper:
     def get_window_size(self) -> Dict:
         return self._driver.get_window_size()
 
+    def set_window_size(self, width: float, height: float) -> None:
+        self._driver.set_window_size(width, height)
+
     def get_window_position(self) -> Dict:
         return self._driver.get_window_position()
 
