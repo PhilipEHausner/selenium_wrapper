@@ -49,6 +49,9 @@ class WebElementWrapper:
     def find_elements_by_class_name(self, name: str) -> List[WebElementWrapper]:
         return [WebElementWrapper(el) for el in self._element.find_elements_by_class_name(name)]
 
+    def click(self) -> None:
+        return self._element.click()
+
     def get_attribute(self, name):
         return self._element.get_attribute(name)
 
