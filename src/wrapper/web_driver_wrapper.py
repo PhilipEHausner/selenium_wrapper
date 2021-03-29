@@ -177,6 +177,9 @@ class WebDriverWrapper:
         self.find_element_by_tag_name("body").get_screenshot_as_file(filename)
         self.set_window_size(current["width"], current["height"])
 
+    def relative_size_of_element(self, element: WebElementWrapper) -> float:
+        return element.size / self.page_size
+
     def element_size_is_larger_than_fraction_of_window_size(self, element: WebElementWrapper, ratio: float) -> bool:
         window_size = self.get_window_size()
         if element.size >= ratio * window_size["height"] * window_size["width"]:
