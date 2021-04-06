@@ -1,5 +1,6 @@
 import os
 import sys
+from typing import List
 
 from selenium import webdriver
 
@@ -24,12 +25,16 @@ def get_firefox_driver(headless: bool = False) -> WebDriverWrapper:
     return WebDriverWrapper(driver)
 
 
-def get_chrome_driver(headless: bool = False) -> WebDriverWrapper:
+def get_chrome_driver(headless: bool = False, extensions: List[str] = None) -> WebDriverWrapper:
     options = webdriver.chrome.options.Options()
     options.headless = headless
     options.add_argument("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
                          "Chrome/89.0.4389.114 Safari/537.36")
     options.add_argument("--lang=de-De")
+
+    # Path to extension
+    for extension in extensions:
+        options.add_extension(extension)
 
     file_path = os.path.dirname(os.path.realpath(__file__))
     if sys.platform == "win32":
