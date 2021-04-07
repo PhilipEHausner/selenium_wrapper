@@ -26,12 +26,18 @@ def get_firefox_driver(headless: bool = False) -> WebDriverWrapper:
 
 
 def get_chrome_driver(headless: bool = False, extensions: List[str] = None) -> WebDriverWrapper:
+    """
+    headless: start in headless mode
+    extensions: each list element needs to be a path to a zip file containing the extension
+    """
     options = webdriver.chrome.options.Options()
     options.headless = headless
     options.add_argument("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
                          "Chrome/89.0.4389.114 Safari/537.36")
     options.add_argument("--lang=de-De")
 
+    if not extensions:
+        extensions = []
     # Path to extension
     for extension in extensions:
         options.add_extension(extension)
