@@ -109,7 +109,7 @@ class WebDriverWrapper:
     def execute_script_from_file(self, file: str, *args):
         with open(file, "r") as f:
             script = f.read()
-        return self.execute_script(script, args)
+        return self.execute_script(script, *args)
 
     def find_element_by_xpath(self, xpath: str) -> WebElementWrapper:
         return WebElementWrapper(self._driver.find_element_by_xpath(xpath))
